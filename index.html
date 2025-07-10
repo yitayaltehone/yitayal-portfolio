@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yitayal Tehone | IT Specialist & Researcher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #34495e;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    header {
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 5%;
+      background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+      animation: pulse 8s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      margin: 0 auto 2rem;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(231, 76, 60, 0.8);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      margin: 0.5rem;
+      font-size: 1.1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 5px;
+      background: var(--secondary);
+      border-radius: 3px;
+    }
+
+    .section-header p {
+      color: #666;
+      max-width: 700px;
+      margin: 2rem auto 0;
+    }
+
+    /* About */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .about-image:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .skill-category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+    }
+
+    .skill-category h3 i {
+      margin-right: 10px;
+      color: var(--secondary);
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 1.1rem;
+    }
+
+    .skill-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-info {
+      padding: 1.8rem;
+    }
+
+    .project-info h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .project-info p {
+      color: #666;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .project-link {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .project-link i {
+      margin-left: 5px;
+      transition: var(--transition);
+    }
+
+    .project-link:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Certifications & Publications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .cert-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--secondary);
+      transition: var(--transition);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    .cert-card p {
+      color: #666;
+    }
+
+    .pub-list {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .pub-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .pub-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .pub-item p {
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Contact */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-info h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--secondary);
+      display: inline-block;
+    }
+
+    .contact-details {
+      list-style: none;
+    }
+
+    .contact-details li {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contact-details i {
+      color: var(--secondary);
+      font-size: 1.4rem;
+      min-width: 40px;
+      margin-top: 3px;
+    }
+
+    .contact-details span {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 5%;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .footer-links li {
+      margin: 0 1rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem 5%;
+      }
+
+      .nav-links {
+        margin-top: 1.5rem;
+      }
+
+      .nav-links li {
+        margin: 0 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .hero-tag {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links li {
+        margin: 0.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-laptop-code"></i>
+        <span>Yitayal Tehone</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="yitul.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Yitayal Tehone" class="profile-photo">
+      <h1>Yitayal Tehone Mnilh</h1>
+      <p>MSc in Information Technology | Web Developer | AI Researcher</p>
+      <div>
+        <span class="hero-tag">IT Specialist</span>
+        <span class="hero-tag" style="animation-delay: 0.5s;">Web Developer</span>
+        <span class="hero-tag" style="animation-delay: 1s;">AI Researcher</span>
+      </div>
+      
+      <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-researchgate"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <p>Get to know more about my background and expertise</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I'm a dedicated IT expert with extensive experience in software engineering, lab support, and web-based system development. Currently serving as Chief Technical Assistant at Debre Markos University, I bring a unique blend of academic knowledge and practical expertise.
+        </p>
+        <p>
+          My work focuses on creating innovative solutions that bridge the gap between technology and user needs. I specialize in network setup, hardware/software troubleshooting, and developing robust web applications that solve real-world problems.
+        </p>
+        <p>
+          With a strong background in both teaching and research, I'm passionate about sharing knowledge and exploring new frontiers in AI and deep learning.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="IT Environment">
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background-color: #f8f9fa;">
+    <div class="section-header">
+      <h2>Technical Skills</h2>
+      <p>My expertise spans across multiple domains of technology</p>
+    </div>
+    
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+        <ul class="skill-list">
+          <li>PHP, HTML, CSS, JavaScript</li>
+          <li>Laravel Framework</li>
+          <li>Database Design & Implementation</li>
+          <li>System Architecture</li>
+          <li>Responsive Design</li>
+        </ul>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>SQL (Oracle, SQL Server, MySQL)</li>
+          <li>Java</li>
+          <li>C++</li>
+          <li>Android (Flutter)</li>
+        </ul>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-brain"></i> AI & Research</h3>
+        <ul class="skill-list">
+          <li>Deep Learning (LSTM, BiLSTM, GRU)</li>
+          <li>Machine Learning</li>
+          <li>Data Analysis with Python</li>
+          <li>Research Methodology</li>
+          <li>Academic Publication</li>
+        </ul>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-network-wired"></i> Networking</h3>
+        <ul class="skill-list">
+          <li>Network Design & Configuration</li>
+          <li>System Security</li>
+          <li>Threat Analysis & Prediction</li>
+          <li>Hardware/Software Troubleshooting</li>
+          <li>Server Management</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>Some of my significant work in system development</p>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1581595219319-4e8db59c4d03?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');"></div>
+        <div class="project-info">
+          <h3>Hospital Automation System</h3>
+          <p>A comprehensive solution for patient treatment and hospital management, automating workflows from patient admission to discharge and billing.</p>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');"></div>
+        <div class="project-info">
+          <h3>Student Information System</h3>
+          <p>Web-based management system for secondary schools developed through university community service, streamlining student records and academic tracking.</p>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');"></div>
+        <div class="project-info">
+          <h3>Research Information Management System</h3>
+          <p>University-wide platform for research evaluation deployed at DMU, facilitating the entire research lifecycle from proposal to publication tracking.</p>
+          <a href="http://www.ajims.dmu.edu.et/" class="project-link" target="_blank">Visit AJIMS <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');"></div>
+        <div class="project-info">
+          <h3>Commercial Management Systems</h3>
+          <p>Two robust web-based commercial management systems developed using PHP framework, tailored to specific business requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" style="background-color: #f8f9fa;">
+    <div class="section-header">
+      <h2>Certifications</h2>
+      <p>Professional credentials validating my expertise</p>
+    </div>
+    
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h3>Data Analysis with Python</h3>
+        <p>FreeCodeCamp</p>
+      </div>
+      
+      <div class="cert-card">
+        <h3>Python Programming</h3>
+        <p>Analytics Vidhya</p>
+      </div>
+      
+      <div class="cert-card">
+        <h3>Student Management System Deployment</h3>
+        <p>Debre Markos University</p>
+      </div>
+      
+      <div class="cert-card">
+        <h3>Database Admin Trainer</h3>
+        <p>COC Exam Preparation</p>
+      </div>
+      
+      <div class="cert-card">
+        <h3>Designing & Developing Websites</h3>
+        <p>Debre Markos University</p>
+      </div>
+      
+      <div class="cert-card">
+        <h3>Network Installation</h3>
+        <p>East Gojjam Administration Office</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications">
+    <div class="section-header">
+      <h2>Published Papers</h2>
+      <p>My research contributions in scientific journals</p>
+    </div>
+    
+    <div class="pub-list">
+      <div class="pub-item">
+        <h3>Sentiment Analysis of the Hamas-Israel War on YouTube Comments Using Deep Learning</h3>
+        <p>Scientific Reports journal</p>
+      </div>
+      
+      <div class="pub-item">
+        <h3>Public Opinion Mining in Social Media About Ethiopian Broadcasts Using Deep Learning</h3>
+        <p>Scientific Reports journal</p>
+      </div>
+      
+      <div class="pub-item">
+        <h3>Network Threat Analysis and Prediction Using a Deep Learning Approach</h3>
+        <p>MSc Thesis | Debre Markos University, 2022</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background-color: #f8f9fa;">
+    <div class="section-header">
+      <h2>Contact Me</h2>
+      <p>Get in touch for collaborations or opportunities</p>
+    </div>
+    
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <ul class="contact-details">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>
+              <strong>Email:</strong><br>
+              Yitayalt21@gmail.com<br>
+              yitayaltehone@dmu.edu.et
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>
+              <strong>Location:</strong><br>
+              Debre Markos University,<br>
+              Debre Markos, Ethiopia
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <span>
+              <strong>Phone:</strong><br>
+              +251-915-87-02-24
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span>
+              <strong>Availability:</strong><br>
+              Open to research collaborations and consulting opportunities
+            </span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.863946237792!2d37.71752167494171!3d10.33041408912283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x163b2e4d1c3a5c49%3A0x5b78b3d8e7d1f1f2!2sDebre%20Markos%20University!5e0!3m2!1sen!2set!4v1689681761980!5m2!1sen!2set" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Yitayal Tehone Mnilh</div>
+      <p>IT Specialist | Researcher | Systems Developer</p>
+      
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      
+      <div class="copyright">
+        <p>© 2025 Yitayal Tehone. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    document.querySelectorAll('.skill-category, .project-card, .cert-card, .pub-item').forEach(el => {
+      el.classList.add('hide');
+      observer.observe(el);
+    });
+    
+    // Add CSS for animation
+    const style = document.createElement('style');
+    style.textContent = `
+      .hide {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
